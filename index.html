@@ -26,7 +26,7 @@
 
   <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
     <!-- Logo -->
-    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-64">
+    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-80">
 
     <!-- Title -->
     <h1 id="title" class="text-4xl font-bold mb-4">BitKultur</h1>
@@ -49,6 +49,19 @@
     </div>
   </main>
 
+  <!-- E-Trade Hedge Strategies Section -->
+  <section class="text-center text-gray-300 py-10 px-4 border-t border-gray-700">
+    <img src="etrade-logo.png" alt="E-Trade Strategies Logo" class="mx-auto w-24 mb-4">
+    <h2 class="text-2xl font-bold mt-2">E-Trade Hedge Strategies</h2>
+    <p id="etrade-text" class="mt-2">
+      Indicators, strategies, and automated trading tools on the CryptoRobotics platform.
+    </p>
+    <a id="etrade-link" href="https://etrade.cryptorobotics.net/" target="_blank"
+       class="mt-4 inline-block px-5 py-2 bg-green-600 text-white font-semibold rounded">
+       CryptoRobotics Platform
+    </a>
+  </section>
+
   <!-- Footer -->
   <footer id="footer" class="text-center text-gray-400 text-sm py-6 border-t border-gray-700 px-4 whitespace-pre-line">
     BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. 
@@ -63,28 +76,36 @@
         slogan: "Bitcoin & Blockchain technology made simple",
         footer: "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom.\nWe publish research, essays, and educational content to help people understand and use decentralized systems responsibly.",
         telegram: "Telegram",
-        medium: "Medium"
+        telegramLink: "https://t.me/BitKulturEN",
+        medium: "Medium",
+        etrade: "Indicators, strategies, and automated trading tools on the CryptoRobotics platform."
       },
       hu: {
         title: "BitKultur",
         slogan: "Bitcoin & Blockchain technológia érthető nyelven",
         footer: "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról.\nTanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket.",
         telegram: "Telegram",
-        medium: "Medium"
+        telegramLink: "https://t.me/bitkultur",
+        medium: "Medium",
+        etrade: "Indikátorok, stratégiák és automatizált kereskedési eszközök a CryptoRobotics platformon."
       },
       de: {
         title: "BitKultur",
         slogan: "Bitcoin- & Blockchain-Technologie verständlich erklärt",
         footer: "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit.\nWir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen.",
         telegram: "Telegram",
-        medium: "Medium"
+        telegramLink: "https://t.me/BitKulturDE",
+        medium: "Medium",
+        etrade: "Indikatoren, Strategien und automatisierte Trading-Tools auf der CryptoRobotics-Plattform."
       },
       ru: {
         title: "BitKultur",
         slogan: "Биткойн и блокчейн простым языком",
         footer: "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе.\nМы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы.",
         telegram: "Телеграм",
-        medium: "Медиум"
+        telegramLink: "https://t.me/BitKulturRU",
+        medium: "Медиум",
+        etrade: "Индикаторы, стратегии и автоматизированные торговые инструменты на платформе CryptoRobotics."
       }
     };
 
@@ -93,7 +114,9 @@
       document.getElementById("slogan").innerText = content[lang].slogan;
       document.getElementById("footer").innerText = content[lang].footer;
       document.getElementById("btn-telegram").innerText = content[lang].telegram;
+      document.getElementById("btn-telegram").href = content[lang].telegramLink;
       document.getElementById("btn-medium").innerText = content[lang].medium;
+      document.getElementById("etrade-text").innerText = content[lang].etrade;
 
       // Reset button highlights
       document.querySelectorAll("#langSelector button").forEach(btn => btn.classList.remove("text-white"));
