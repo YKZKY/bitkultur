@@ -36,21 +36,21 @@
 
     <!-- Buttons -->
     <div class="flex flex-wrap justify-center gap-4 mb-6">
-      <a href="https://t.me/BitKulturEN" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded">Telegram</a>
-      <a href="https://medium.bitcultur.com" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded">Medium</a>
+      <a id="btn-telegram" href="https://t.me/BitKulturEN" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded">Telegram</a>
+      <a id="btn-medium" href="https://medium.bitcultur.com" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded">Medium</a>
     </div>
 
     <!-- Language Selector -->
-    <div class="flex gap-4 text-gray-400 mb-6">
-      <button onclick="setLang('en')" class="hover:text-white">EN</button> |
-      <button onclick="setLang('hu')" class="hover:text-white">HU</button> |
-      <button onclick="setLang('de')" class="hover:text-white">DE</button> |
-      <button onclick="setLang('ru')" class="hover:text-white">RU</button>
+    <div id="langSelector" class="flex gap-4 text-gray-400 mb-6">
+      <button onclick="setLang('en')" id="btn-en" class="hover:text-white">EN</button> |
+      <button onclick="setLang('hu')" id="btn-hu" class="hover:text-white">HU</button> |
+      <button onclick="setLang('de')" id="btn-de" class="hover:text-white">DE</button> |
+      <button onclick="setLang('ru')" id="btn-ru" class="hover:text-white">RU</button>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer id="footer" class="text-center text-gray-400 text-sm py-6 border-t border-gray-700">
+  <footer id="footer" class="text-center text-gray-400 text-sm py-6 border-t border-gray-700 px-4">
     BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. 
     We publish research, essays, and educational content to help people understand and use decentralized systems responsibly.
   </footer>
@@ -61,22 +61,30 @@
       en: {
         title: "BitKultur",
         slogan: "Decentralized Knowledge, Honest Finance, Human Freedom",
-        footer: "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. We publish research, essays, and educational content to help people understand and use decentralized systems responsibly."
+        footer: "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. We publish research, essays, and educational content to help people understand and use decentralized systems responsibly.",
+        telegram: "Telegram",
+        medium: "Medium"
       },
       hu: {
         title: "BitKultur",
         slogan: "Decentralizált tudás, tisztességes pénzügyek, emberi szabadság",
-        footer: "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról. Tanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket."
+        footer: "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról. Tanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket.",
+        telegram: "Telegram",
+        medium: "Medium"
       },
       de: {
         title: "BitKultur",
         slogan: "Dezentrales Wissen, ehrliche Finanzen, menschliche Freiheit",
-        footer: "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit. Wir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen."
+        footer: "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit. Wir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen.",
+        telegram: "Telegram",
+        medium: "Medium"
       },
       ru: {
         title: "BitKultur",
         slogan: "Децентрализованные знания, честные финансы, человеческая свобода",
-        footer: "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе. Мы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы."
+        footer: "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе. Мы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы.",
+        telegram: "Телеграм",
+        medium: "Медиум"
       }
     };
 
@@ -84,7 +92,17 @@
       document.getElementById("title").innerText = content[lang].title;
       document.getElementById("slogan").innerText = content[lang].slogan;
       document.getElementById("footer").innerText = content[lang].footer;
+      document.getElementById("btn-telegram").innerText = content[lang].telegram;
+      document.getElementById("btn-medium").innerText = content[lang].medium;
+
+      // Reset language button styles
+      document.querySelectorAll("#langSelector button").forEach(btn => btn.classList.remove("text-white"));
+      // Highlight active language
+      document.getElementById(`btn-${lang}`).classList.add("text-white");
     }
+
+    // Default language
+    setLang('en');
   </script>
 
 </body>
