@@ -23,13 +23,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col min-h-screen">
+
   <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
     <!-- Logo -->
-    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-32 h-32">
+    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-48">
 
     <!-- Title -->
-    <h1 class="text-4xl font-bold mb-4">BitKultur</h1>
-    <p class="text-lg text-gray-300 mb-6">
+    <h1 id="title" class="text-4xl font-bold mb-4">BitKultur</h1>
+    <p id="slogan" class="text-lg text-gray-300 mb-6">
       Decentralized Knowledge, Honest Finance, Human Freedom
     </p>
 
@@ -40,18 +41,51 @@
     </div>
 
     <!-- Language Selector -->
-    <div class="flex gap-4 text-gray-400">
-      <a href="#" class="hover:text-white">EN</a> |
-      <a href="#" class="hover:text-white">HU</a> |
-      <a href="#" class="hover:text-white">DE</a> |
-      <a href="#" class="hover:text-white">RU</a>
+    <div class="flex gap-4 text-gray-400 mb-6">
+      <button onclick="setLang('en')" class="hover:text-white">EN</button> |
+      <button onclick="setLang('hu')" class="hover:text-white">HU</button> |
+      <button onclick="setLang('de')" class="hover:text-white">DE</button> |
+      <button onclick="setLang('ru')" class="hover:text-white">RU</button>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="text-center text-gray-400 text-sm py-6 border-t border-gray-700">
+  <footer id="footer" class="text-center text-gray-400 text-sm py-6 border-t border-gray-700">
     BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. 
     We publish research, essays, and educational content to help people understand and use decentralized systems responsibly.
   </footer>
+
+  <!-- Language Switcher Script -->
+  <script>
+    const content = {
+      en: {
+        title: "BitKultur",
+        slogan: "Decentralized Knowledge, Honest Finance, Human Freedom",
+        footer: "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. We publish research, essays, and educational content to help people understand and use decentralized systems responsibly."
+      },
+      hu: {
+        title: "BitKultur",
+        slogan: "Decentralizált tudás, tisztességes pénzügyek, emberi szabadság",
+        footer: "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról. Tanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket."
+      },
+      de: {
+        title: "BitKultur",
+        slogan: "Dezentrales Wissen, ehrliche Finanzen, menschliche Freiheit",
+        footer: "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit. Wir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen."
+      },
+      ru: {
+        title: "BitKultur",
+        slogan: "Децентрализованные знания, честные финансы, человеческая свобода",
+        footer: "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе. Мы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы."
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById("title").innerText = content[lang].title;
+      document.getElementById("slogan").innerText = content[lang].slogan;
+      document.getElementById("footer").innerText = content[lang].footer;
+    }
+  </script>
+
 </body>
 </html>
