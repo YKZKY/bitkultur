@@ -10,14 +10,14 @@
 
   <!-- Social preview meta tags -->
   <meta property="og:title" content="BitKultur" />
-  <meta property="og:description" content="Decentralized Knowledge, Honest Finance, Human Freedom." />
+  <meta property="og:description" content="Bitcoin & Blockchain technology made simple." />
   <meta property="og:image" content="https://ykzky.github.io/bitkultur/bitkultur-preview.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ykzky.github.io/bitkultur/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BitKultur">
-  <meta name="twitter:description" content="Decentralized Knowledge, Honest Finance, Human Freedom.">
+  <meta name="twitter:description" content="Bitcoin & Blockchain technology made simple.">
   <meta name="twitter:image" content="https://ykzky.github.io/bitkultur/bitkultur-preview.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,12 +26,12 @@
 
   <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
     <!-- Logo -->
-    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-48">
+    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-64">
 
     <!-- Title -->
     <h1 id="title" class="text-4xl font-bold mb-4">BitKultur</h1>
     <p id="slogan" class="text-lg text-gray-300 mb-6">
-      Decentralized Knowledge, Honest Finance, Human Freedom
+      Bitcoin & Blockchain technológia érthető nyelven
     </p>
 
     <!-- Buttons -->
@@ -50,7 +50,7 @@
   </main>
 
   <!-- Footer -->
-  <footer id="footer" class="text-center text-gray-400 text-sm py-6 border-t border-gray-700 px-4">
+  <footer id="footer" class="text-center text-gray-400 text-sm py-6 border-t border-gray-700 px-4 whitespace-pre-line">
     BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. 
     We publish research, essays, and educational content to help people understand and use decentralized systems responsibly.
   </footer>
@@ -60,29 +60,29 @@
     const content = {
       en: {
         title: "BitKultur",
-        slogan: "Decentralized Knowledge, Honest Finance, Human Freedom",
-        footer: "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. We publish research, essays, and educational content to help people understand and use decentralized systems responsibly.",
+        slogan: "Bitcoin & Blockchain technology made simple",
+        footer: "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom.\nWe publish research, essays, and educational content to help people understand and use decentralized systems responsibly.",
         telegram: "Telegram",
         medium: "Medium"
       },
       hu: {
         title: "BitKultur",
-        slogan: "Decentralizált tudás, tisztességes pénzügyek, emberi szabadság",
-        footer: "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról. Tanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket.",
+        slogan: "Bitcoin & Blockchain technológia érthető nyelven",
+        footer: "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról.\nTanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket.",
         telegram: "Telegram",
         medium: "Medium"
       },
       de: {
         title: "BitKultur",
-        slogan: "Dezentrales Wissen, ehrliche Finanzen, menschliche Freiheit",
-        footer: "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit. Wir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen.",
+        slogan: "Bitcoin- & Blockchain-Technologie verständlich erklärt",
+        footer: "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit.\nWir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen.",
         telegram: "Telegram",
         medium: "Medium"
       },
       ru: {
         title: "BitKultur",
-        slogan: "Децентрализованные знания, честные финансы, человеческая свобода",
-        footer: "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе. Мы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы.",
+        slogan: "Биткойн и блокчейн простым языком",
+        footer: "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе.\nМы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы.",
         telegram: "Телеграм",
         medium: "Медиум"
       }
@@ -95,14 +95,24 @@
       document.getElementById("btn-telegram").innerText = content[lang].telegram;
       document.getElementById("btn-medium").innerText = content[lang].medium;
 
-      // Reset language button styles
+      // Reset button highlights
       document.querySelectorAll("#langSelector button").forEach(btn => btn.classList.remove("text-white"));
-      // Highlight active language
+      // Highlight active lang
       document.getElementById(`btn-${lang}`).classList.add("text-white");
+
+      // Update URL param
+      const url = new URL(window.location);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url);
     }
 
-    // Default language
-    setLang('en');
+    function getLangFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("lang") || "en";
+    }
+
+    // Set initial language
+    setLang(getLangFromUrl());
   </script>
 
 </body>
