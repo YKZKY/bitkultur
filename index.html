@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BitKultur</title>
 
-  <!-- Browser favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-  <!-- Social preview meta tags -->
+  <!-- Social preview -->
   <meta property="og:title" content="BitKultur" />
   <meta property="og:description" content="Bitcoin & Blockchain technology made simple." />
   <meta property="og:image" content="https://ykzky.github.io/bitkultur/bitkultur-preview.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ykzky.github.io/bitkultur/" />
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BitKultur">
-  <meta name="twitter:description" content="Bitcoin & Blockchain technology made simple.">
-  <meta name="twitter:image" content="https://ykzky.github.io/bitkultur/bitkultur-preview.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BitKultur" />
+  <meta name="twitter:description" content="Bitcoin & Blockchain technology made simple." />
+  <meta name="twitter:image" content="https://ykzky.github.io/bitkultur/bitkultur-preview.png" />
 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col min-h-screen">
+<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col min-h-screen selection:bg-yellow-500 selection:text-black">
 
+  <!-- HERO -->
   <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
-    <!-- Logo -->
-    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-80">
+    <img src="logo.png" alt="BitKultur Logo" class="mx-auto mb-6 w-80" />
 
-    <!-- Title -->
     <h1 id="title" class="text-4xl font-bold mb-4">BitKultur</h1>
     <p id="slogan" class="text-lg text-gray-300 mb-6">
       Bitcoin & Blockchain technológia érthető nyelven
     </p>
 
-    <!-- Buttons -->
     <div class="flex flex-wrap justify-center gap-4 mb-6">
-      <a id="btn-telegram" href="https://t.me/BitKulturEN" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded">Telegram</a>
-      <a id="btn-medium" href="https://medium.bitcultur.com" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded">Medium</a>
+      <a id="btn-telegram" href="https://t.me/BitKulturEN"
+         class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded">Telegram</a>
+      <a id="btn-medium" href="https://medium.bitcultur.com"
+         class="px-4 py-2 bg-blue-500 text-white font-semibold rounded">Medium</a>
     </div>
 
-    <!-- Language Selector -->
-    <div id="langSelector" class="flex gap-4 text-gray-400 mb-6">
-      <button onclick="setLang('en')" id="btn-en" class="hover:text-white">EN</button> |
-      <button onclick="setLang('hu')" id="btn-hu" class="hover:text-white">HU</button> |
-      <button onclick="setLang('de')" id="btn-de" class="hover:text-white">DE</button> |
-      <button onclick="setLang('ru')" id="btn-ru" class="hover:text-white">RU</button>
+    <!-- Nyelvváltó -->
+    <div id="langSelector" class="flex items-center gap-3 text-gray-400 mb-2">
+      <button id="btn-en" class="px-2 py-1 rounded hover:text-white" onclick="setLang('en')">EN</button>
+      <span class="opacity-40">|</span>
+      <button id="btn-hu" class="px-2 py-1 rounded hover:text-white" onclick="setLang('hu')">HU</button>
+      <span class="opacity-40">|</span>
+      <button id="btn-de" class="px-2 py-1 rounded hover:text-white" onclick="setLang('de')">DE</button>
+      <span class="opacity-40">|</span>
+      <button id="btn-ru" class="px-2 py-1 rounded hover:text-white" onclick="setLang('ru')">RU</button>
     </div>
   </main>
 
-  <!-- E-Trade Hedge Strategies Section -->
+  <!-- E-TRADE HEDGE STRATEGIES -->
   <section class="text-center text-gray-300 py-10 px-4 border-t border-gray-700">
-    <img src="etrade-logo.png" alt="E-Trade Strategies Logo" class="mx-auto w-24 mb-4">
+    <img src="etrade-logo.png" alt="E-Trade Strategies Logo" class="mx-auto w-24 mb-4" />
     <h2 class="text-2xl font-bold mt-2">E-Trade Hedge Strategies</h2>
-    <p id="etrade-text" class="mt-2">
+    <p id="etrade-text" class="mt-2 max-w-3xl mx-auto">
       Indicators, strategies, and automated trading tools on the CryptoRobotics platform.
     </p>
-    <a id="etrade-link" href="https://etrade.cryptorobotics.net/" target="_blank"
+    <a id="etrade-link" href="https://etrade.cryptorobotics.net/" target="_blank" rel="noopener"
        class="mt-4 inline-block px-5 py-2 bg-green-600 text-white font-semibold rounded">
        CryptoRobotics Platform
     </a>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer id="footer" class="text-center text-gray-400 text-sm py-6 border-t border-gray-700 px-4 whitespace-pre-line">
-    BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom. 
+    BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom.
     We publish research, essays, and educational content to help people understand and use decentralized systems responsibly.
   </footer>
 
-  <!-- Language Switcher Script -->
+  <!-- LANGUAGE LOGIC -->
   <script>
     const content = {
       en: {
         title: "BitKultur",
         slogan: "Bitcoin & Blockchain technology made simple",
-        footer: "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom.\nWe publish research, essays, and educational content to help people understand and use decentralized systems responsibly.",
+        footer:
+          "BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom.\nWe publish research, essays, and educational content to help people understand and use decentralized systems responsibly.",
         telegram: "Telegram",
         telegramLink: "https://t.me/BitKulturEN",
         medium: "Medium",
@@ -83,7 +86,8 @@
       hu: {
         title: "BitKultur",
         slogan: "Bitcoin & Blockchain technológia érthető nyelven",
-        footer: "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról.\nTanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket.",
+        footer:
+          "A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról.\nTanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket.",
         telegram: "Telegram",
         telegramLink: "https://t.me/bitkultur",
         medium: "Medium",
@@ -92,7 +96,8 @@
       de: {
         title: "BitKultur",
         slogan: "Bitcoin- & Blockchain-Technologie verständlich erklärt",
-        footer: "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit.\nWir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen.",
+        footer:
+          "BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit.\nWir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen.",
         telegram: "Telegram",
         telegramLink: "https://t.me/BitKulturDE",
         medium: "Medium",
@@ -101,7 +106,8 @@
       ru: {
         title: "BitKultur",
         slogan: "Биткойн и блокчейн простым языком",
-        footer: "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе.\nМы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы.",
+        footer:
+          "BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе.\nМы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы.",
         telegram: "Телеграм",
         telegramLink: "https://t.me/BitKulturRU",
         medium: "Медиум",
@@ -110,33 +116,40 @@
     };
 
     function setLang(lang) {
-      document.getElementById("title").innerText = content[lang].title;
-      document.getElementById("slogan").innerText = content[lang].slogan;
-      document.getElementById("footer").innerText = content[lang].footer;
-      document.getElementById("btn-telegram").innerText = content[lang].telegram;
-      document.getElementById("btn-telegram").href = content[lang].telegramLink;
-      document.getElementById("btn-medium").innerText = content[lang].medium;
-      document.getElementById("etrade-text").innerText = content[lang].etrade;
+      const c = content[lang] || content.en;
 
-      // Reset button highlights
-      document.querySelectorAll("#langSelector button").forEach(btn => btn.classList.remove("text-white"));
-      // Highlight active lang
-      document.getElementById(`btn-${lang}`).classList.add("text-white");
+      // fő szövegek
+      document.getElementById("title").innerText   = c.title;
+      document.getElementById("slogan").innerText  = c.slogan;
+      document.getElementById("footer").innerText  = c.footer;
+      document.getElementById("etrade-text").innerText = c.etrade;
 
-      // Update URL param
+      // gombfeliratok + dinamikus Telegram link
+      const tg = document.getElementById("btn-telegram");
+      tg.innerText = c.telegram;
+      tg.setAttribute("href", c.telegramLink); // legyen biztos, hogy frissül
+
+      document.getElementById("btn-medium").innerText = c.medium;
+
+      // Aktív nyelv kiemelése
+      document.querySelectorAll("#langSelector button")
+        .forEach(btn => btn.classList.remove("text-white", "ring-2", "ring-gray-300", "rounded"));
+      const active = document.getElementById(`btn-${lang}`);
+      if (active) active.classList.add("text-white", "ring-2", "ring-gray-300", "rounded");
+
+      // URL param frissítés
       const url = new URL(window.location);
       url.searchParams.set("lang", lang);
       window.history.replaceState({}, "", url);
     }
 
     function getLangFromUrl() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get("lang") || "en";
+      const p = new URLSearchParams(window.location.search);
+      return p.get("lang") || "en";
     }
 
-    // Set initial language
+    // Indításkor állítsuk be a nyelvet (URL alapján)
     setLang(getLangFromUrl());
   </script>
-
 </body>
 </html>
