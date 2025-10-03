@@ -52,11 +52,35 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-950 text-gray-400 text-center py-6 text-sm">
-    <p id="footer-en">© 2025 BitKultur. Informational purposes only – not financial advice.</p>
-    <p id="footer-hu" class="hidden">© 2025 BitKultur. Tájékoztató jellegű tartalom – nem minősül pénzügyi tanácsadásnak.</p>
-    <p id="footer-de" class="hidden">© 2025 BitKultur. Nur zu Informationszwecken – keine Finanzberatung.</p>
-    <p id="footer-ru" class="hidden">© 2025 BitKultur. Только в информационных целях – не является финансовой консультацией.</p>
+  <footer class="bg-gray-950 text-gray-400 text-center py-6 text-sm whitespace-pre-line">
+    <!-- Küldetés szöveg -->
+    <p id="footer-desc-en" class="max-w-3xl mx-auto leading-relaxed">
+      BitKultur is an independent knowledge hub about Bitcoin, blockchain, and financial freedom.
+      We publish research, essays, and educational content to help people understand and use decentralized systems responsibly.
+    </p>
+    <p id="footer-desc-hu" class="hidden max-w-3xl mx-auto leading-relaxed">
+      A BitKultur egy független tudásközpont a Bitcoinról, a blokkláncról és a pénzügyi szabadságról.
+      Tanulmányokat, esszéket és oktató anyagokat adunk közre, hogy bárki felelősen megértse és használja a decentralizált rendszereket.
+    </p>
+    <p id="footer-desc-de" class="hidden max-w-3xl mx-auto leading-relaxed">
+      BitKultur ist ein unabhängiges Wissenszentrum über Bitcoin, Blockchain und finanzielle Freiheit.
+      Wir veröffentlichen Analysen, Essays und Lernmaterialien, um Menschen zu helfen, dezentrale Systeme verantwortungsvoll zu verstehen und zu nutzen.
+    </p>
+    <p id="footer-desc-ru" class="hidden max-w-3xl mx-auto leading-relaxed">
+      BitKultur — это независимый центр знаний о Биткойне, блокчейне и финансовой свободе.
+      Мы публикуем исследования, эссе и образовательные материалы, чтобы помочь людям понять и ответственно использовать децентрализованные системы.
+    </p>
+
+    <!-- Elválasztó vonal -->
+    <div class="border-t border-gray-700 my-4 w-2/3 mx-auto"></div>
+
+    <!-- Disclaimer -->
+    <div>
+      <p id="footer-note-en">© 2025 BitKultur. Informational purposes only – not financial advice.</p>
+      <p id="footer-note-hu" class="hidden">© 2025 BitKultur. Tájékoztató jellegű tartalom – nem minősül pénzügyi tanácsadásnak.</p>
+      <p id="footer-note-de" class="hidden">© 2025 BitKultur. Nur zu Informationszwecken – keine Finanzberatung.</p>
+      <p id="footer-note-ru" class="hidden">© 2025 BitKultur. Только в информационных целях – не является финансовой консультацией.</p>
+    </div>
   </footer>
 
   <!-- LANGUAGE LOGIC -->
@@ -103,12 +127,12 @@
       const tg = document.getElementById("btn-telegram");
       tg.innerText = c.telegram;
       tg.setAttribute("href", c.telegramLink);
-
       document.getElementById("btn-medium").innerText = c.medium;
 
       // footer váltás
       document.querySelectorAll("footer p").forEach(el => el.classList.add("hidden"));
-      document.getElementById(`footer-${lang}`).classList.remove("hidden");
+      document.getElementById(`footer-desc-${lang}`).classList.remove("hidden");
+      document.getElementById(`footer-note-${lang}`).classList.remove("hidden");
 
       // nyelvválasztó kiemelés
       document.querySelectorAll("#langSelector button")
